@@ -79,6 +79,11 @@
   ansible.builtin.service:
     name: rh-php72-php-fpm
     enabled: yes
+    
+- firewalld:
+    port: ['80/tcp', '443/tcp', '10050/tcp', '10051/tcp']
+    permanent: true
+    state: enabled
 
 
 
