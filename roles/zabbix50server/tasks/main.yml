@@ -14,7 +14,7 @@
 
 - name: Copy repo file for frontend
   ansible.builtin.copy:
-    src: /roles/zabbix50/templates/yumrepos/zabbix.repo
+    src: /roles/zabbix50server/templates/yumrepos/zabbix.repo
     dest: /etc/yum.repos.d/zabbix.repo
 
 - name: Web-interface for Zabbix install
@@ -27,17 +27,17 @@
 
 - name: Copy DB config file
   ansible.builtin.copy:
-    src: /roles/zabbix50/templates/zabbix/zabbix_server.conf
+    src: /roles/zabbix50server/templates/zabbix/zabbix_server.conf
     dest: /etc/zabbix/zabbix_server.conf 
 
 - name: Copy Nginx config file 
   ansible.builtin.copy:
-    src: /roles/zabbix50/templates/nginx/zabbix.conf
+    src: /roles/zabbix50server/templates/nginx/zabbix.conf
     dest: /etc/opt/rh/rh-nginx116/nginx/conf.d/zabbix.conf 
 
 - name: Copy PHP config file 
   ansible.builtin.copy:
-    src: /roles/zabbix50/templates/php/zabbix.conf
+    src: /roles/zabbix50server/templates/php/zabbix.conf
     dest: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
 
 - name: Restart service zabbix-server
