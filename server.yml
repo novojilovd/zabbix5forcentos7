@@ -12,5 +12,5 @@
     root
   roles:
    - postgresql
-   - zabbix50
+   - zabbix50server
 
