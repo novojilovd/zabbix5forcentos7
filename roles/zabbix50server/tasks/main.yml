@@ -12,7 +12,7 @@
     name: ['zabbix-server-pgsql', 'zabbix-agent', 'centos-release-scl']
     state: present
 
-- name: Enable frontend file
+- name: Copy repo file for frontend
   ansible.builtin.copy:
     src: /roles/zabbix50/templates/yumrepos/zabbix.repo
     dest: /etc/yum.repos.d/zabbix.repo
@@ -30,12 +30,12 @@
     src: /roles/zabbix50/templates/zabbix/zabbix_server.conf
     dest: /etc/zabbix/zabbix_server.conf 
 
-- name: Copy DB config file 
+- name: Copy Nginx config file 
   ansible.builtin.copy:
     src: /roles/zabbix50/templates/nginx/zabbix.conf
     dest: /etc/opt/rh/rh-nginx116/nginx/conf.d/zabbix.conf 
 
-- name: Copy DB config file 
+- name: Copy PHP config file 
   ansible.builtin.copy:
     src: /roles/zabbix50/templates/php/zabbix.conf
     dest: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
