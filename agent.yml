@@ -1,0 +1,14 @@
+---
+- name: "CentOS7"
+  hosts: 127.0.0.1
+  connection: local
+  vars_files:
+   - vars.yml
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - zabbix50agent
