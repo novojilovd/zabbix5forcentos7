@@ -21,12 +21,12 @@
 - name: Init database and create user for Zabbix
   ansible.builtin.shell: |
     sudo -u postgres /usr/pgsql-10/bin/createuser --pwprompt zabbix
-    expect "Enter password for new role:"
-    send "{{ zabbix_password }}\n"
-    expect "\nEnter it again:"
-    send "{{ zabbix_password }}\n"
+    expect "Enter password for new role:\r"
+    send "{{ zabbix_password }}"
+    expect "Enter it again:\r"
+    send "{{ zabbix_password }}"
 
-    sudo -u postgres createdb -O zabbix zabbix
+    sudo -u postgres /usr/pgsql-10/bin/createdb -O zabbix zabbix
     exit 0
   args:
     executable: /usr/bin/expect
