@@ -50,25 +50,41 @@
   ansible.builtin.service:
     name: zabbix-agent
     state: restarted
-    enable: yes
 
 - name: Restart service rh-nginx116-nginx
   ansible.builtin.service:
     name: rh-nginx116-nginx
     state: restarted
-    enable: yes
 
 - name: Restart service rh-php72-php-fpm
   ansible.builtin.service:
     name: rh-php72-php-fpm
     state: restarted
-    enable: yes
+    
+- name: Enable service zabbix-server
+  ansible.builtin.service:
+    name: zabbix-server
+    enabled: yes
+    
+- name: Enable service zabbix-agent
+  ansible.builtin.service:
+    name: zabbix-agent
+    enabled: yes
+    
+- name: Enable service rh-nginx116-nginx
+  ansible.builtin.service:
+    name: rh-nginx116-nginx
+    enabled: yes
+
+- name: Enable service rh-php72-php-fpm
+  ansible.builtin.service:
+    name: rh-php72-php-fpm
+    enabled: yes
     
 - name: Restart service postgresql-10
   ansible.builtin.service:
     name: postgresql-10
     state: started
-    enable: yes
     
 
 
