@@ -36,7 +36,7 @@
   ansible.builtin.copy:
     src: ~/zabbix5forcentos7/roles/zabbix50server/templates/php/zabbix.conf
     dest: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
-    
+
 - name: Restart service zabbix-server
   ansible.builtin.service:
     name: zabbix-server
