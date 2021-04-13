@@ -14,12 +14,12 @@
 
 - name: Copy repo file for frontend
   ansible.builtin.copy:
-    src: /roles/zabbix50server/templates/yumrepos/zabbix.repo
+    src: ~/zabbix5forcentos7/roles/zabbix50server/templates/yumrepos/zabbix.repo
     dest: /etc/yum.repos.d/zabbix.repo
 
 - name: Web-interface for Zabbix install
   yum:  
-    name: ['zabbix-server-pgsql', 'zabbix-agent', 'centos-release-scl']
+    name: ['zabbix-web-pgsql-scl', 'zabbix-nginx-conf-scl']
     state: present
 
 - name: Insect database configuration
@@ -27,63 +27,49 @@
 
 - name: Copy DB config file
   ansible.builtin.copy:
-    src: /roles/zabbix50server/templates/zabbix/zabbix_server.conf
+    src: ~/zabbix5forcentos7/roles/zabbix50server/templates/zabbix/zabbix_server.conf
     dest: /etc/zabbix/zabbix_server.conf 
 
 - name: Copy Nginx config file 
   ansible.builtin.copy:
-    src: /roles/zabbix50server/templates/nginx/zabbix.conf
+    src: ~/zabbix5forcentos7/roles/zabbix50server/templates/nginx/zabbix.conf
     dest: /etc/opt/rh/rh-nginx116/nginx/conf.d/zabbix.conf 
 
 - name: Copy PHP config file 
   ansible.builtin.copy:
-    src: /roles/zabbix50server/templates/php/zabbix.conf
+    src: ~/zabbix5forcentos7/roles/zabbix50server/templates/php/zabbix.conf
     dest: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
 
 - name: Restart service zabbix-server
   ansible.builtin.service:
     name: zabbix-server
     state: restarted
+    enable: yes
 
 - name: Restart service zabbix-agent
   ansible.builtin.service:
     name: zabbix-agent
     state: restarted
+    enable: yes
 
 - name: Restart service rh-nginx116-nginx
   ansible.builtin.service:
     name: rh-nginx116-nginx
     state: restarted
+    enable: yes
 
 - name: Restart service rh-php72-php-fpm
   ansible.builtin.service:
     name: rh-php72-php-fpm
     state: restarted
-
-- name: Enable service zabbix-server                                                
-  ansible.builtin.service:
-    name: zabbix-server
-    enabled: yes
-
-- name: Enabled service zabbix-agent                                   
-  ansible.builtin.service:
-    name: zabbix-agent
-    enabled: yes
-
-- name: Enabled service rh-nginx116-nginx  
-  ansible.builtin.service: 
-    name: rh-nginx116-nginx
-    enabled: yes
-
-- name: Enabled service rh-php72-php-fpm
-  ansible.builtin.service:
-    name: rh-php72-php-fpm
-    enabled: yes
+    enable: yes
     
-- firewalld:
-    port: ['80/tcp', '443/tcp', '10050/tcp', '10051/tcp']
-    permanent: true
-    state: enabled
+- name: Restart service postgresql-10
+  ansible.builtin.service:
+    name: postgresql-10
+    state: started
+    enable: yes
+    
 
 
 

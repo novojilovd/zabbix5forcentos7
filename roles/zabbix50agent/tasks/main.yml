@@ -14,10 +14,5 @@
     
 - name: Copy standart agent config file 
   ansible.builtin.copy:
-    src: /roles/zabbix50agent/templates/zabbix_agentd.conf
+    src: ~/zabbix5forcentos7/roles/zabbix50agent/templates/zabbix_agentd.conf
     dest: /etc/zabbix/zabbix_agentd.conf
-    
-- firewalld:
-    port: ['80/tcp', '443/tcp', '10050/tcp', '10051/tcp']
-    permanent: true
-    state: enabled
