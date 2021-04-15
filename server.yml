@@ -2,8 +2,6 @@
 - name: "CentOS"
   hosts: 127.0.0.1
   connection: local
-  vars_files:
-    - vars.yml
   become:
     true
   become_method:
