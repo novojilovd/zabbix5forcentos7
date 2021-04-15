@@ -2,6 +2,8 @@
 - name: "CentOS"
   hosts: 127.0.0.1
   connection: local
+  vars_files:
+   - "{{ gitclonepath }}/group_vars/centos7"
   become:
     true
   become_method:
@@ -10,4 +12,3 @@
     root
   roles:
    - zabbix50server
-
