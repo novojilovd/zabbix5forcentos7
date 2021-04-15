@@ -1,2 +1,13 @@
+[centos6]
+
+
 [centos7]
 127.0.0.1
+
+[centos8]
+
+
+[centos:children]
+centos6
+centos7
+centos8
