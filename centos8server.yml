@@ -1,0 +1,11 @@
+---
+- name: "CentOS 8"
+  hosts: centos8
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos8server 

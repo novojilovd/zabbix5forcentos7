@@ -1,0 +1,11 @@
+---
+- name: "CentOS 6"
+  hosts: centos6agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos6agent

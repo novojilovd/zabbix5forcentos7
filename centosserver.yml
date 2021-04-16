@@ -1,0 +1,3 @@
+---
+- include: centos7server
+- include: centos8server

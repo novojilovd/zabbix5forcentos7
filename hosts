@@ -1,35 +1,68 @@
 # Server + Agent
-[centos7]
 
-[centos8]
+#Centos
+[centos7server]
 
-[RHEL7]
+[centos7agent]
 
-[RHEL8]
+[centos8server]
 
-[oracle7]
+[centos8agent]
 
-[oracle8]
+#RHEL
+[RHEL7server]
 
-[ubuntu16]
+[RHEL7agent]
 
-[ubuntu18]
+[RHEL8server]
 
-[debian10]
+[RHEL8agent]
+
+#Oracle
+[oracle7server]
+
+[oracle7agent]
+
+[oracle8server]
+
+[oracle8agent]
+
+#Ubuntu
+[ubuntu18server]
+
+[ubuntu18agent]
+
+[ubuntu20server]
+
+[ubuntu20agent]
+
+#Debian
+[debian10server]
+
+[debian10agent]
+
+
 
 #Agent only
-[centos6]
+[centos6agent]
 
-[RHEL6]
+[RHEL6agent]
 
-[oracle6]
+[oracle6agent]
 
-[ubuntu14]
+[ubuntu14agent]
 
-[ubuntu20]
+[ubuntu16agent]
 
-[debian8]
+[debian8agent]
 
-[debian9]
+[debian9agent]
 
+#Groups by OS
+[centos7:children]
+centos7agent
+centos7server
 
+[centos8:children]
+centos8agent
+centos8server

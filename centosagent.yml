@@ -1,0 +1,4 @@
+---
+- include: centos6agent
+- include: centos7agent
+- include: centos8agent

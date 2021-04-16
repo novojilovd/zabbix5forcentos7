@@ -1,0 +1,11 @@
+---
+- name: "CentOS 7"
+  hosts: centos7server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos7server 
