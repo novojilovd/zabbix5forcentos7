@@ -1,4 +1,4 @@
 ---
-- include: RHEL6server
-- include: RHEL7server
-- include: RHEL8server
+- import_playbook: RHEL6server
+- import_playbook: RHEL7server
+- import_playbook: RHEL8server

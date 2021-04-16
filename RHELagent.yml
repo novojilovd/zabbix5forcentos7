@@ -1,4 +1,4 @@
 ---
-- include: RHEL6agent
-- include: RHEL7agent
-- include: RHEL8agent
+- import_playbook: RHEL6agent
+- import_playbook: RHEL7agent
+- import_playbook: RHEL8agent

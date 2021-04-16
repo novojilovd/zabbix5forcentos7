@@ -1,4 +1,4 @@
 ---
-- include: centos6agent
-- include: centos7agent
-- include: centos8agent
+- import_playbook: centos6agent
+- import_playbook: centos7agent
+- import_playbook: centos8agent
