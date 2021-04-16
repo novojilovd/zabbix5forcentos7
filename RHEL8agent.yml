@@ -1,0 +1,11 @@
+---
+- name: "RHEL 8"
+  hosts: RHEL8agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos8agent  

@@ -1,0 +1,11 @@
+---
+- name: "RHEL 6"
+  hosts: RHEL6agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos6agent 

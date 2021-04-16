@@ -1,0 +1,4 @@
+---
+- include: RHEL6agent
+- include: RHEL7agent
+- include: RHEL8agent

@@ -1,0 +1,12 @@
+---
+- name: "RHEL 7"
+  hosts: RHEL7server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - RHEL7server 
+ 
