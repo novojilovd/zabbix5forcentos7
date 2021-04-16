@@ -57,12 +57,3 @@
 [debian8agent]
 
 [debian9agent]
-
-#Groups by OS
-[centos7:children]
-centos7agent
-centos7server
-
-[centos8:children]
-centos8agent
-centos8server
