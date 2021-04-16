@@ -1,13 +1,35 @@
-[centos6]
-
-
+# Server + Agent
 [centos7]
-127.0.0.1
 
 [centos8]
 
+[RHEL7]
 
-[centos:children]
-centos6
-centos7
-centos8
+[RHEL8]
+
+[oracle7]
+
+[oracle8]
+
+[ubuntu16]
+
+[ubuntu18]
+
+[debian10]
+
+#Agent only
+[centos6]
+
+[RHEL6]
+
+[oracle6]
+
+[ubuntu14]
+
+[ubuntu20]
+
+[debian8]
+
+[debian9]
+
+
