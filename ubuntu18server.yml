@@ -1,0 +1,12 @@
+---
+- name: "Ubuntu 18"
+  hosts: ubuntu18server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - ubuntu18server
+
