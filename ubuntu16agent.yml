@@ -1,0 +1,11 @@
+---
+- name: "Ubuntu 16"
+  hosts: ubuntu16agent
+  become: 
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - ubuntu16agent
