@@ -1,0 +1,11 @@
+---
+- name: "Ubuntu 20"
+  hosts: debian9agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - ubuntu20agent 
