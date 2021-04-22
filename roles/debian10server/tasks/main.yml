@@ -1,0 +1,52 @@
+---
+- name: Install Zabbix repo
+  ansible.builtin.shell: "wget {{ repo_url }} && dpkg -i {{ repo_file }} && apt update"
+
+- name: Server and Agent install
+  apt:
+    name: ['zabbix-server-pgsql', 'zabbix-frontend-php', 'php7.3-pgsql', 'zabbix-nginx-conf', 'zabbix-agent']
+    state: present
+
+- name: Copy DB config file
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/zabbix/zabbix_server.conf"
+    dest: /etc/zabbix/zabbix_server.conf 
+
+- name: Copy Nginx config file 
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/nginx/zabbix.conf"
+    dest: /etc/zabbix/nginx.conf 
+
+- name: Copy PHP config file 
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/php/zabbix.conf"
+    dest: /etc/zabbix/php-fpm.conf
+
+- name: Restart service zabbix-server
+  ansible.builtin.service:
+    name: zabbix-server
+    state: restarted
+    enabled: yes
+
+- name: Restart service zabbix-agent
+  ansible.builtin.service:
+    name: zabbix-agent
+    state: restarted
+    enabled: yes
+
+- name: Restart service nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes
+
+- name: Restart service php7.3-fpm
+  ansible.builtin.service:
+    name: php7.3-fpm
+    state: restarted
+    enabled: yes
+    
+
+
+
+
