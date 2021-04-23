@@ -19,10 +19,6 @@
 [RHEL8agent]
 
 #Oracle
-[oracle7server]
-
-[oracle7agent]
-
 [oracle8server]
 
 [oracle8agent]
@@ -49,6 +45,8 @@
 [RHEL6agent]
 
 [oracle6agent]
+
+[oracle7agent]
 
 [ubuntu14agent]
 
