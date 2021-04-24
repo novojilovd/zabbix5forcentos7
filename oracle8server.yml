@@ -1,0 +1,11 @@
+---
+- name: "Oracle 8"
+  hosts: oracle8server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos8server  

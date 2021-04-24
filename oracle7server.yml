@@ -1,0 +1,11 @@
+---
+- name: "Oracle 7"
+  hosts: oracle7server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - oracle7server  

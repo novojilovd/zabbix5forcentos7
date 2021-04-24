@@ -1,0 +1,11 @@
+---
+- name: "Oracle 7"
+  hosts: oracle7agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+   - centos7agent  
