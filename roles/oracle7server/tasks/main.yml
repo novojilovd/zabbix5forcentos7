@@ -1,0 +1,78 @@
+---
+- name: Install Zabbix repo
+  yum:
+    name: "{{ repo_url }}"
+    state: present
+
+- name: Yum clean all
+  ansible.builtin.shell: yum clean all
+
+- name: Server and Agent install
+  yum:
+    name: ['zabbix-server-pgsql', 'zabbix-agent', 'centos-release-scl']
+    state: present
+    
+- name: Install Zabbix frontend 1
+  yum:
+    name: ['scl-utils', 'oraclelinux-release-el7']
+    state: present
+    
+- name: Install Zabbix Frontend 2
+  ansible.builtin.shell: |
+    /usr/bin/ol_yum_configure.sh
+    yum-config-manager --enable software_collections
+    yum-config-manager --enable ol7_latest ol7_optional_latest
+
+- name: Copy repo file for frontend
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/yumrepos/zabbix.repo"
+    dest: /etc/yum.repos.d/zabbix.repo
+
+- name: Web-interface for Zabbix install
+  yum:  
+    name: ['zabbix-web-pgsql-scl', 'zabbix-nginx-conf-scl']
+    state: present
+
+- name: Copy DB config file
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/zabbix/zabbix_server.conf"
+    dest: /etc/zabbix/zabbix_server.conf 
+
+- name: Copy Nginx config file 
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/nginx/zabbix.conf"
+    dest: /etc/opt/rh/rh-nginx116/nginx/conf.d/zabbix.conf 
+
+- name: Copy PHP config file 
+  ansible.builtin.copy:
+    src: "{{ gitclonepath }}/roles/zabbix50server/templates/php/zabbix.conf"
+    dest: /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
+
+- name: Restart service zabbix-server
+  ansible.builtin.service:
+    name: zabbix-server
+    state: restarted
+    enabled: yes
+
+- name: Restart service zabbix-agent
+  ansible.builtin.service:
+    name: zabbix-agent
+    state: restarted
+    enabled: yes
+
+- name: Restart service rh-nginx116-nginx
+  ansible.builtin.service:
+    name: rh-nginx116-nginx
+    state: restarted
+    enabled: yes
+
+- name: Restart service rh-php72-php-fpm
+  ansible.builtin.service:
+    name: rh-php72-php-fpm
+    state: restarted
+    enabled: yes
+    
+
+
+
+
