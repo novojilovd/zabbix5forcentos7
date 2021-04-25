@@ -37,7 +37,15 @@
 
 [debian10agent]
 
+#OpenSUSE
 
+[opensuse15server]
+
+[opensuse15agent]
+
+[opensuse12server]
+
+[opensuse12agent]
 
 #Agent only
 [centos6agent]
