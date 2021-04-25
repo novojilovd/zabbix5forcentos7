@@ -1,0 +1,11 @@
+---
+- name: "OpenSUSE 15"
+  hosts: opensuse15agent
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+    - opensuse15agent 
