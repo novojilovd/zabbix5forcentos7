@@ -1,5 +1,5 @@
 ---
-- import_playbook: ubuntu14agent
-- import_playbook: ubuntu16agent
-- import_playbook: ubuntu18agent
-- import_playbook: ubuntu20agent
+- import_playbook: ubuntu14agent.yml
+- import_playbook: ubuntu16agent.yml
+- import_playbook: ubuntu18agent.yml
+- import_playbook: ubuntu20agent.yml

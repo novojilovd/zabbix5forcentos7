@@ -1,0 +1,3 @@
+---
+- import_playbook: opensuse12agent.yml
+- import_playbook: opensuse15agent.yml

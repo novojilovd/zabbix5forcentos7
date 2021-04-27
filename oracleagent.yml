@@ -1,0 +1,4 @@
+---
+- import_playbook: oracle6agent.yml
+- import_playbook: oracle7agent.yml
+- import_playbook: oracle8agent.yml

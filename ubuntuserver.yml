@@ -1,3 +1,3 @@
 ---
-- import_playbook: ubuntu18server
-- import_playbook: ubuntu20server
+- import_playbook: ubuntu18server.yml
+- import_playbook: ubuntu20server.yml

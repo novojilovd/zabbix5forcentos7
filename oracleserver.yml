@@ -1,0 +1,3 @@
+---
+- import_playbook: oracle7server.yml
+- import_playbook: oracle8server.yml

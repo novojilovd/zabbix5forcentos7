@@ -1,0 +1,4 @@
+---
+- import_playbook: debian8agent.yml
+- import_playbook: debian9agent.yml
+- import_playbook: debian10agent.yml
