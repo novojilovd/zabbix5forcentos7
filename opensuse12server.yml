@@ -1,0 +1,11 @@
+---
+- name: "OpenSUSE 12"
+  hosts: opensuse12server
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  roles:
+    - opensuse12server
