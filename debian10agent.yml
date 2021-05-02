@@ -1,5 +1,5 @@
 ---
-- name: "Ubuntu 20"
+- name: "Debian 10"
   hosts: debian10agent
   become:
     true

@@ -1,5 +1,5 @@
 ---
-- name: "Ubuntu 20"
+- name: "Debian 10"
   hosts: debian10server
   become:
     true
@@ -8,4 +8,4 @@
   become_user:
     root
   roles:
-   - ubuntu20server 
+   - debian10server 

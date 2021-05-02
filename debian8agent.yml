@@ -1,5 +1,5 @@
 ---
-- name: "Ubuntu 20"
+- name: "Debian 8"
   hosts: debian8agent
   become:
     true
