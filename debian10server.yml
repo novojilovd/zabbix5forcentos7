@@ -1,8 +1,8 @@
 ---
 - name: "Debian 10"
   hosts: 127.0.0.1
-  connect: local
-  var_files: /root/zabbix5forcentos7/group_vars/debian10server
+  connection: local
+  vars_files: /root/zabbix5forcentos7/group_vars/debian10server
   become:
     true
   become_method:

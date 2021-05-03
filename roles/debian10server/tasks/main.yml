@@ -1,6 +1,6 @@
 ---
 - name: Install Zabbix repo
-  ansible.builtin.shell: "wget {{ repo_url }} && dpkg -i {{ repo_file }} && apt update"
+  shell: "wget {{ repo_url }} && dpkg -i {{ repo_file }} && apt update"
 
 - name: Server and Agent install
   apt:
